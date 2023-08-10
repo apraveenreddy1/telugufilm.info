@@ -36,13 +36,13 @@ class MoviesFilter extends Component {
 			}
 		];
 		return (
-			<div className="movies-filter">
-				<ul>
-					{filters.map(item => (
-						<li key={item.slug} className={item.slug === filter  ? 'active' : ''} onClick={() => this.ChangeFilter(item.slug)}>{item.title}</li>
+			<div className="text-center movies-filter">
+               <ul className="nav justify-content-center align-items-center mb-7 tab-nav__v4 font-secondary font-weight-semi-bold font-size-1rem" role="tablist">
+			   		{filters.map(item => (
+						<li key={item.slug} className={item.slug === filter  ? 'nav-link active' : 'nav-link'} onClick={() => this.ChangeFilter(item.slug)}>{item.title}</li>
 					))}
-				</ul>
-			</div>
+               </ul>
+            </div>
 		)
 	}
 }

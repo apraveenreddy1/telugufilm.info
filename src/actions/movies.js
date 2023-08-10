@@ -30,7 +30,8 @@ const onLoadMovies = {
 		type: LOAD_MOVIES_REQUEST
 	}),
 	fetch: (pageNumber, filter) => {
-		return api.request.get(`/movie/${filter}?page=${pageNumber}`);
+		//return api.request.get(`/movie/${filter}?page=${pageNumber}`);
+		return api.request.get(`https://telugufilm.info/api/${filter}`);
 	},
 	success: (payload) => {
 		return {

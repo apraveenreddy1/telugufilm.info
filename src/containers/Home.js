@@ -18,13 +18,20 @@ class Home extends Component {
 		const { t } = this.props;
 
 		return (
-			<div className="movies">
-				<Helmet>
-					<title>{t('The Movies')}</title>
-				</Helmet>
+
+			<div className="bg-img-hero space-top-3 space-bottom-1  dark" style={{backgroundImage: 'url("assets/img/1920x667/img1.jpg")'}}>
 				<MoviesFilter/>
 				<MoviesList/>
 			</div>
+			
+			// <div className="movies">
+			// 	<Helmet>
+			// 		<title>{t('The Movies')}</title>
+			// 	</Helmet>
+			// 	<MoviesFilter/>
+			// 	<MoviesList/>
+			// </div>
+			
 		)
 	}
 }

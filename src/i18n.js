@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import XHR from 'i18next-xhr-backend';
 
 const options = {
-	fallbackLng: 'ru',
+	fallbackLng: 'en',
 	ns: ['translations'],
 	defaultNS: 'translations',
 	keySeparator: false,

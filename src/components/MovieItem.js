@@ -16,26 +16,40 @@ class MovieItem extends Component {
 	render(){
 		const { movie, genres, isFetched } = this.props;
 		return (
-			<div className="movie">
-				<div className={`movie-rating ${movie.vote_average >= 7 && 'movie-rating-positive'}`}>{movie.vote_average}</div>
-				<Link to={`/movie/${movie.id}`} className="movie-poster">
-					{movie.poster_path && (
-						<img src={`${config.API_IMAGE.small}/${movie.poster_path}`} onLoad={this.imageLoaded}/>
-					)}
-				</Link>
-				<Link to={`/movie/${movie.id}`} className="movie-title">
-					{movie.title}
-				</Link>
-				<div className="movie-genres">
-					<ul className="movie-genres">
-						{isFetched && movie.genre_ids.map((id, index) => {
-							const item = genres.filter(genre => genre.id === id);
-							if(item.length)
-								return (
-									<li key={id}>{isFetched && item.shift().name}{index + 1 !== movie.genre_ids.length && ', '} </li>
-								)
-						})}
-					</ul>
+
+
+                         
+
+
+
+
+			<div className="col">
+				<div className="product px-2 mb-4">
+					<div className="product-image mb-1">
+						<Link to={`/movie/${movie.id}`} className="d-inline-block position-relative stretched-link">
+							<img className="img-fluid" src={`${config.API_IMAGE.small}/${movie.poster_path}`} onLoad={this.imageLoaded}/>
+						</Link>
+					</div>
+					<div className="product-title">
+						<Link to={`/movie/${movie.id}`} className="d-inline-block">
+							<span className="text-gray-1300 font-size-12">{movie.vote_average}</span>
+							<div className="mb-0 font-weight-bold font-size-1"> {movie.title}</div>
+						</Link>
+					</div>
+
+
+					{/* <div className="movie-genres">
+						<ul className="movie-genres">
+							{isFetched && movie.genre_ids.map((id, index) => {
+								const item = genres.filter(genre => genre.id === id);
+								if(item.length)
+									return (
+										<li key={id}>{isFetched && item.shift().name}{index + 1 !== movie.genre_ids.length && ', '} </li>
+									)
+							})}
+						</ul>
+					</div> */}
+					
 				</div>
 			</div>
 		)

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component} from 'react';
 import { withRouter } from "react-router-dom";
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
@@ -15,11 +15,15 @@ import { storage } from './services';
 
 import config from './config';
 
-import './assets/styles/normalize.css';
-import './assets/styles/main.css';
+import $ from 'jquery';
+
+//import './assets/styles/normalize.css';
+//import './assets/styles/main.css';
 
 
 class App extends Component {
+
+	
 
 	componentWillMount(){
 		const { i18n, ChangeLang } = this.props;
@@ -32,7 +36,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="wrapper">
+			<div>
 				<YMInitializer accounts={[49919320]} option={{
 					clickmap:true,
 					trackLinks:true,
@@ -40,13 +44,15 @@ class App extends Component {
 					webvisor:true
 				}} />
 				<Header/>
-				<div className="container">
+				<main id="content">
 					{routes}
-				</div>
+				</main>
 			</div>
 		)
 	}
 }
+
+
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(
 	{

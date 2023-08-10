@@ -15,6 +15,8 @@ import CreditList from '../components/CreditList';
 import ImagesList from '../components/ImagesList';
 import RecommendationsList from '../components/RecommendationsList';
 
+import './../assets/styles/main.css';
+
 class Movie extends Component {
 
 	static path = '/movie/:movie_id(\\d+)/:cast?';
