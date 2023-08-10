@@ -15,7 +15,8 @@ import { storage } from './services';
 
 import config from './config';
 
-import $ from 'jquery';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 //import './assets/styles/normalize.css';
 //import './assets/styles/main.css';

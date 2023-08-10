@@ -19,7 +19,7 @@ class Home extends Component {
 
 		return (
 
-			<div className="bg-img-hero space-top-3 space-bottom-1  dark" style={{backgroundImage: 'url("assets/img/1920x667/img1.jpg")'}}>
+			<div className="bg-img-hero space-top-3 space-bottom-1  dark" style={{backgroundImage: 'url("assets/img/header.jpg")'}}>
 				<MoviesFilter/>
 				<MoviesList/>
 			</div>
