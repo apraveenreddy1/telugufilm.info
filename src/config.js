@@ -3,7 +3,7 @@ const config = {
 	API_KEY: '6a3c1b514cca5a0464b97ecc1c766946',
 	API_IMAGE: {
 		small: 'https://image.tmdb.org/t/p/w185/',
-		medium: 'https://image.tmdb.org/t/p/w300/',
+		medium: 'https://image.tmdb.org/t/p/w400/',
 		large: 'https://image.tmdb.org/t/p/w500/',
 		original: 'https://image.tmdb.org/t/p/original/'
 	},
