@@ -27,13 +27,14 @@ class MovieItem extends Component {
 				<div className="product mb-5 mb-xl-0">
 					<div className="product-image mb-1">
 						<Link to={`/movie/${movie.id}`} className="d-inline-block position-relative stretched-link">
-							<img className="img-fluid" src={`${config.API_IMAGE.small}/${movie.poster_path}`} onLoad={this.imageLoaded}/>
+							{movie.poster_path ? (
+								<img className="img-fluid" src={`${config.API_IMAGE.small}/${movie.poster_path}`} onLoad={this.imageLoaded}/>
+							) : (<img className="img-fluid" src="../assets/img/no_image.jpg" onLoad={this.imageLoaded}/>)}
 						</Link>
 					</div>
 					<div className="product-title">
 						<Link to={`/movie/${movie.id}`} className="d-inline-block">
-							<span className="text-gray-1300 font-size-12">{movie.vote_average}</span>
-							<div className="mb-0 font-weight-bold font-size-1"> {movie.title}</div>
+							<div className="mb-0 font-weight-bold text-white font-size-1"> {movie.title}</div>
 						</Link>
 					</div>
 

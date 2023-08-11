@@ -73,37 +73,31 @@ class Movie extends Component {
 											<div className="mb-5 mb-md-0">
 												<h6 className="font-size-36 text-white mb-4 pb-1">{person.name}</h6>
 
-												{person.birthday && (
-												<ul className="list-unstyled nav nav-meta font-secondary mb-3 pb-1 flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
-													<li className="text-white flex-shrink-0 flex-shrink-lg-1">
-													<div className="person-item">
-														<span>{t('Birthday')}:</span>
-														{person.birthday}
-													</div>
-													</li>
-												</ul>
-												)}
-												{person.place_of_birth && (
-												<ul className="list-unstyled nav nav-meta font-secondary mb-3 pb-1 flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
-													<li className="text-white flex-shrink-0 flex-shrink-lg-1">
-													<div className="person-item">
-														<span>{t('Place of birth')}:</span>
-														{person.place_of_birth}
-													</div>
-													</li>
-												</ul>
-												)}
-												{person.biography && (
-												<ul className="list-unstyled nav nav-meta font-secondary mb-3 pb-1 flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
-													<li className="text-white flex-shrink-0 flex-shrink-lg-1">
-													<div className="person-biography">
-														<span>{t('Biography')}:</span>
-														{person.biography}
-													</div>
-													</li>
-												</ul>
-												)}
-												
+												<table>
+													<tbody>
+														{person.birthday && (
+															<tr>
+																<th class="text-gray-5500 w-160rem font-weight-normal">{t('Birthday')}: </th>
+																<td><span class="d-block text-gray-5500 font-weight-medium">{person.birthday}</span></td>
+															</tr>
+														)}
+													
+														{person.place_of_birth && (
+															<tr>
+																<th class="text-gray-5500 w-160rem font-weight-normal">{t('Place of birth')}:</th>
+																<td><span class="d-block text-gray-5500 font-weight-medium">{person.place_of_birth}</span></td>
+															</tr>
+														)}
+
+														{person.biography && (
+															<tr>
+																<th class="text-gray-5500 w-160rem font-weight-normal">{t('Biography')}:</th>
+																<td><span class="d-block text-gray-5500 font-weight-medium">{person.biography}</span></td>
+															</tr>
+														)}
+														
+													</tbody>
+												</table>
 											</div>
 										</div>	
 									</div>

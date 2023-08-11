@@ -18,17 +18,17 @@ class CreditItem extends Component {
 				<div className="product mb-5 mb-xl-0">
 					<div className="product-image mb-2">
 						<Link to={`/person/${credit.id}`} className="d-inline-block position-relative stretched-link">
-							{credit.profile_path !== null && (
+							{credit.profile_path ? (
 								<img className="img-fluid" src={`${config.API_IMAGE.small}/${credit.profile_path}`} onLoad={this.imageLoaded}/>
-							)}
+							) : (<img className="img-fluid" src="../assets/img/no_image.jpg" onLoad={this.imageLoaded}/>)}
 						</Link>
 					</div>
 					<div className="product-meta font-size-12 mb-1">
 						<div className="product-meta font-size-12 mb-1">
-							<span><a href="single-movies-v1.html" className="h-g-primary">{credit.character}</a></span>
+							<span><a href="#" className="h-g-primary text-white">{credit.character}</a></span>
 						</div>
 					</div>
-					<div className="product-title font-weight-bold font-size-1"><a href="single-movies-v1.html">{credit.name}</a></div>
+					<div className="product-title font-weight-bold font-size-1 text-white"><a href="#" class="text-white">{credit.name}</a></div>
 				</div>
 			</div>
 		)

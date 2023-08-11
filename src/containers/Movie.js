@@ -77,7 +77,9 @@ class Movie extends Component {
 
 						  <div className="col-md-3">
 							<div>
-								<img className="img-fluid" src={`${config.API_IMAGE.medium}/${movie.poster_path}`} alt={movie.title} />
+								{movie.poster_path ? (
+									<img className="img-fluid" src={`${config.API_IMAGE.medium}/${movie.poster_path}`} alt={movie.title} />
+								) : (<img className="img-fluid" src="../assets/img/no_image.jpg" onLoad={this.imageLoaded}/>)}
 							</div>
 							{/* <div className="bg-gray-3100">
 								<div>
@@ -120,32 +122,63 @@ class Movie extends Component {
 								<div className="row border-bottom border-gray-5600 space-bottom-2 no-gutters mb-4">
 									<div className="col-md-7 col-lg">
 										<div className="mb-5 mb-md-0">
-											<h6 className="font-size-36 text-white mb-4 pb-1">{movie.title}</h6>
-											<div className="d-flex align-items-center mb-5">
-											<div className="d-flex">
-												<div>
-													<i className="fas fa-star text-primary font-size-42"></i>
-												</div>
-												<div className="text-lh-1 ml-1">
-													<div className="text-primary font-size-24 font-weight-semi-bold">{movie.vote_average}</div>
-													<span className="text-gray-1300 font-size-12">0 Votes</span>
+											<h6 className="font-size-36 text-white mb-2 pb-1">{movie.title}</h6>
+											<div className="d-flex align-items-center mb-3">
+												<div className="d-flex">
+													<div>
+														<i className="fas fa-star text-primary font-size-20"></i>
+													</div>
+													<div className="text-lh-1 ml-1">
+														<div className="text-primary font-size-22 font-weight-semi-bold">{movie.vote_average.toFixed(1)}</div>
+													</div>
 												</div>
 											</div>
-											</div>
-											<ul className="list-unstyled nav nav-meta font-secondary mb-3 pb-1 flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
-												<li className="text-white flex-shrink-0 flex-shrink-lg-1">{movie.release_date}</li>
-												<li className="text-white flex-shrink-0 flex-shrink-lg-1">{this.convertMinsToHrsMins(movie.runtime)}</li>
-												<li className="text-white flex-shrink-0 flex-shrink-lg-1">$ {this.moneySpace(movie.budget)}</li>
-												<li className="text-white flex-shrink-0 flex-shrink-lg-1">$ {this.moneySpace(movie.revenue)}</li>
-											</ul>
-											<ul className="list-unstyled">
-												{movie.genres && movie.genres.map(item => {
-													return (
-														<li className="text-white flex-shrink-0 flex-shrink-lg-1" key={item.id}>{item.name}</li>
-													)
-												})}
-											</ul>
-											<p className="text-gray-5500 font-size-16 mb-5 pb-1 text-lh-md">{movie.title}</p>
+
+											<table>
+												<tbody>
+												{movie.release_date ? (
+													<tr>
+														<th class="text-gray-5500 w-160rem font-weight-normal">{t('Release date')}: </th>
+														<td><span class="d-block text-gray-5500 font-weight-medium">{movie.release_date}</span></td>
+													</tr>
+												) : ''}
+												{movie.budget ? (
+													<tr>
+														<th class="text-gray-5500 w-160rem font-weight-normal">{t('Budget')}: </th>
+														<td><span class="d-block text-gray-5500 font-weight-medium">$ {this.moneySpace(movie.budget)}</span></td>
+													</tr>
+												) : ''}
+												{movie.revenue ? (
+													<tr>
+														<th class="text-gray-5500 w-160rem font-weight-normal">{t('Revenue')}: </th>
+														<td><span class="d-block text-gray-5500 font-weight-medium">$ {this.moneySpace(movie.revenue)}</span></td>
+													</tr>
+												) : ''}
+													<tr>
+														<th class="text-gray-5500 w-160rem font-weight-normal">{t('Duration')}: </th>
+														<td><span class="d-block text-gray-5500 font-weight-medium">{this.convertMinsToHrsMins(movie.runtime)}</span></td>
+													</tr>
+													<tr>
+														<th class="text-gray-5500 w-160rem font-weight-normal">Genres: </th>
+														<td>
+															<span class="d-block text-gray-5500 font-weight-medium">
+																<ul className="list-unstyled nav nav-meta font-secondary flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
+																	{movie.genres && movie.genres.map(item => {
+																		return (
+																			<li className="text-white flex-shrink-0 flex-shrink-lg-1" key={item.id}><a href="#">{item.name}</a></li>
+																		)
+																	})}
+																</ul>
+															</span>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+
+											{movie.overview ? (
+												<p className="text-gray-5500 font-size-16 text-lh-md">{movie.overview}</p>
+											) : ''}
+											
 											{/* <div className="d-flex justify-content-between">
 												<div>
 													<h6 className="font-size-15 mb-0">
