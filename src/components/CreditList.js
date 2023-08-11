@@ -50,18 +50,10 @@ class CreditList extends Component {
 			);
 
 		return (
-			<div className="credits">
-				<div className="credits-title">
-					{t('Top Billed Cast')}
-					{credits.length > 6 && (
-						<span className={this.state.visibleAll ? 'active' : ''} onClick={this.showAll}>{t('Show all')}</span>
-					)}
-				</div>
-				<div className="credits-inline">
-					{creditsArray.map(credit => (
-						<CreditItem key={credit.id} credit={credit}/>
-					))}
-				</div>
+			<div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 mx-n2 dark">
+				{creditsArray.map(credit => (
+					<CreditItem key={credit.id} credit={credit}/>
+				))}
 			</div>
 		)
 	}

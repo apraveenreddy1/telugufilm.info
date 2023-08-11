@@ -17,11 +17,6 @@ import config from './config';
 
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-
-//import './assets/styles/normalize.css';
-//import './assets/styles/main.css';
-
-
 class App extends Component {
 
 	

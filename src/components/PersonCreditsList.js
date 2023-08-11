@@ -26,16 +26,12 @@ class PersonCreditsList extends Component {
 			);
 
 		return (
-			<div className="person-credits">
-				<div className="title">{t('Known by')}</div>
-				<div className="movies">
-					<div className="movies-inner">
-						{movies.map(movie => (
-							<MovieItem key={movie.id} movie={movie}/>
-						))}
-					</div>
-				</div>
+			<div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 mx-n2 dark">
+				{movies.map(movie => (
+					<MovieItem key={movie.id} movie={movie}/>
+				))}
 			</div>
+			
 		)
 	}
 }

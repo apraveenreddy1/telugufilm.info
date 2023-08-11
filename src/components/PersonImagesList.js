@@ -46,8 +46,7 @@ class PersonImagesList extends Component {
 
 		return (
 			profiles.length > 0 && (
-				<div className="person_images">
-					<div className="title">{t('Photos')}</div>
+				<div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 mx-n2 dark">
 					<PhotoSwipeGallery items={profiles} options={{}} thumbnailContent={this.getThumbnailContent}/>
 				</div>
 			)

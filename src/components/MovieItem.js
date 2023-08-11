@@ -23,8 +23,8 @@ class MovieItem extends Component {
 
 
 
-			<div className="col">
-				<div className="product px-2 mb-4">
+			<div className="col-xl px-2">
+				<div className="product mb-5 mb-xl-0">
 					<div className="product-image mb-1">
 						<Link to={`/movie/${movie.id}`} className="d-inline-block position-relative stretched-link">
 							<img className="img-fluid" src={`${config.API_IMAGE.small}/${movie.poster_path}`} onLoad={this.imageLoaded}/>

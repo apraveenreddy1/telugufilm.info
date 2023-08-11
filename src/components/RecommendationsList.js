@@ -29,20 +29,13 @@ class RecommendationsList extends Component {
 			);
 
 		return (
-			<div className="recommendations">
-				{recommendations.results && recommendations.results.length > 0 && (
-					<div className="movie-recommendations">
-						<div className="title">{t('Recommendations')}</div>
-						<div className="movies">
-							<div className="movies-inner">
-								{recommendations.results && recommendations.results.map(movie => (
-									<MovieItem key={movie.id} movie={movie}/>
-								))}
-							</div>
-						</div>
-					</div>
-				)}
-			</div>
+
+		<div className="row row-cols-1 row-cols-md-3 row-cols-xl-6 mx-n2 dark">					
+			{recommendations.results && recommendations.results.map(movie => (
+				<MovieItem key={movie.id} movie={movie}/>
+			))}
+		</div>
+			
 		);
 	}
 }

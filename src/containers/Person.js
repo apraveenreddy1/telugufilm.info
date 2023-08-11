@@ -48,42 +48,82 @@ class Movie extends Component {
 			);
 
 		return (
-			<div>
-				<Helmet>
-					<title>{person.name} | {t('The Movies')}</title>
-				</Helmet>
-				<div className="person">
-					<div className="person-inner">
-						<div className="person-image">
-							<img src={`${config.API_IMAGE.medium}/${person.profile_path}`} onLoad={this.imageLoaded}/>
-						</div>
-						<div className="person-details">
-							<div className="person-name">
-								{person.name}
+			<div className="bg-gray-1100 space-bottom-2 space-bottom-lg-3">
+				<div className="container px-md-6">
+					<nav aria-label="breadcrumb">
+						<ol className="breadcrumb dark font-size-1">
+							<li className="breadcrumb-item"><a href="../home/index-2.html" className="text-gray-1300">Home</a></li>
+							<li className="breadcrumb-item"><a href="#" className="text-gray-1300">Person</a></li>
+							<li className="breadcrumb-item text-white active" aria-current="page"> {person.name}</li>
+						</ol>
+					</nav>
+				</div>
+
+				<section>
+					<div className="container px-md-6">
+						<div className="row">
+							<div className="col-md-3">
+								<img className="img-fluid" src={`${config.API_IMAGE.medium}/${person.profile_path}`} onLoad={this.imageLoaded}/>
 							</div>
-							{person.birthday && (
-								<div className="person-item">
-									<span>{t('Birthday')}:</span>
-									{person.birthday}
+
+							<div className="col-md-9">
+								<div className="pl-md-2 pt-4">
+									<div className="row border-bottom border-gray-5600 space-bottom-2 no-gutters mb-4">
+										<div className="col-md-7 col-lg">
+											<div className="mb-5 mb-md-0">
+												<h6 className="font-size-36 text-white mb-4 pb-1">{person.name}</h6>
+
+												{person.birthday && (
+												<ul className="list-unstyled nav nav-meta font-secondary mb-3 pb-1 flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
+													<li className="text-white flex-shrink-0 flex-shrink-lg-1">
+													<div className="person-item">
+														<span>{t('Birthday')}:</span>
+														{person.birthday}
+													</div>
+													</li>
+												</ul>
+												)}
+												{person.place_of_birth && (
+												<ul className="list-unstyled nav nav-meta font-secondary mb-3 pb-1 flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
+													<li className="text-white flex-shrink-0 flex-shrink-lg-1">
+													<div className="person-item">
+														<span>{t('Place of birth')}:</span>
+														{person.place_of_birth}
+													</div>
+													</li>
+												</ul>
+												)}
+												{person.biography && (
+												<ul className="list-unstyled nav nav-meta font-secondary mb-3 pb-1 flex-nowrap flex-lg-wrap overflow-auto overflow-lg-hidden">
+													<li className="text-white flex-shrink-0 flex-shrink-lg-1">
+													<div className="person-biography">
+														<span>{t('Biography')}:</span>
+														{person.biography}
+													</div>
+													</li>
+												</ul>
+												)}
+												
+											</div>
+										</div>	
+									</div>
+
+									{/* <div className="mb-6 mb-lg-8">
+										<div className="font-size-26 text-gray-5500 mb-3 pb-1">Person</div>
+										<PersonImagesList/>
+									</div> */}
+
+									<div className="mb-6 mb-lg-8">
+										<div className="font-size-26 text-gray-5500 mb-3 pb-1">Movie</div>
+										<PersonCreditList/>
+									</div>
+
 								</div>
-							)}
-							{person.place_of_birth && (
-								<div className="person-item">
-									<span>{t('Place of birth')}:</span>
-									{person.place_of_birth}
-								</div>
-							)}
-							{person.biography && (
-								<div className="person-biography">
-									<span>{t('Biography')}:</span>
-									{person.biography}
-								</div>
-							)}
-							<PersonImagesList/>
+							</div>
 						</div>
 					</div>
-				</div>
-				<PersonCreditList/>
+					
+				</section>
 			</div>
 		)
 	}
